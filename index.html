@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sejarah Pancasila</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indored: '#9B1C1C',
+                        garudagold: '#D4AF37',
+                        slateboard: '#0F172A',
+                    },
+                    fontFamily: {
+                        // Menggunakan sistem font yang sangat terbaca (highly legible)
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts untuk tampilan premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* Desain Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* Tema Sunrise Gradation untuk Hero Section */
+        .sunrise-bg {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 30%, #881337 70%, #f59e0b 100%);
+        }
+
+        /* Styling transisi mulus */
+        .transition-all-custom {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-500 selection:text-slate-900">
+
+    <!-- Progress Membaca -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-slate-200/50 z-50">
+        <div id="readProgress" class="h-full bg-amber-500 w-0 transition-all duration-100"></div>
+    </div>
+
+    <!-- Page 1: Hero Section (Menggunakan struktur halaman & gambar lokal ceee.png) -->
+    <div class="page page1 relative min-h-screen flex flex-col justify-between overflow-hidden sunrise-bg text-white">
+        <!-- Overlay Grid Tipis -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+        
+        <!-- Header Nav -->
+        <nav class="relative z-10 max-w-7xl mx-auto w-full px-6 py-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🇮🇩</span>
+                <span class="font-bold tracking-wider text-sm sm:text-base uppercase text-amber-300">PANCASILA INDONESIA</span>
+            </div>
+            <a href="#pengertian" class="text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/20 px-4 py-2 rounded-full border border-white/25 backdrop-blur transition">
+                Jelajahi Materi
+            </a>
+        </nav>
+
+        <!-- Main Banner Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto py-12">
+            <div class="lg:col-span-7 space-y-6 text-left">
+                <span class="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-bold uppercase tracking-widest">
+                    Pilar Bangsa dan Negara
+                </span>
+                <h1 class="font-serif text-4xl sm:text-6xl font-bold leading-tight">
+                    Menjaga Api <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-red-400">Sejarah Pancasila</span>
+                </h1>
+                <p class="text-slate-200 text-base sm:text-lg max-w-xl leading-relaxed font-light">
+                    Temukan perjalanan bersejarah lahirnya lima pilar utama yang menjadi jati diri, pemersatu, dan fondasi abadi bangsa Indonesia.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#pengertian" class="px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl shadow-lg shadow-amber-500/25 transition duration-300 hover:scale-[1.02] text-sm text-center">
+                        Mulai Membaca
+                    </a>
+                    <a href="#timeline" class="px-8 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 backdrop-blur transition duration-300 text-sm text-center">
+                        Lihat Garis Waktu
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bagian Gambar Utama: ceee.png (Sesuai Struktur Request) -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="img relative w-full max-w-md aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
+                    <!-- Gambar ceee.png dengan class bdyboy -->
+                    <img src="Logo Pancasila.png" alt="Ilustrasi Pancasila" class="bdyboy w-full h-full object-cover rounded-2xl transition duration-500 hover:scale-105" onerror="this.style.display='none'; document.getElementById('placeholder-ceee').classList.remove('hidden');">
+                    
+                    <!-- Fallback SVG jika file ceee.png belum ditaruh di folder oleh Ilyas -->
+                    <div id="placeholder-ceee" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-4">
+                        <div class="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center border border-amber-500/20 text-4xl">
+                            🦅
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-amber-300">File "ceee.png" belum dipasang</p>
+                            <p class="text-xs text-slate-400 mt-1">Nanti silakan taruh file gambar kamu dengan nama <code class="bg-black/40 px-1 py-0.5 rounded text-red-300">ceee.png</code> di folder yang sama ya!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wave / Transition Bottom -->
+        <div class="relative w-full overflow-hidden leading-[0]">
+            <svg class="relative block w-full h-12 text-slate-50" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,55.05,16.3,83.1,22.18,154.06,37.07,227.18,48.32,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-6 py-16 space-y-32">
+
+        <!-- Section 1: Pengertian Pancasila -->
+        <section id="pengertian" class="scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-block px-3 py-1 bg-red-50 text-red-700 font-bold text-xs rounded-md uppercase tracking-wider">
+                        Arti dan Makna
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+                        Pengertian Pancasila
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-base sm:text-lg">
+                        Secara etimologis, Pancasila berasal dari bahasa Sanskerta. Kata <strong class="text-red-700 font-bold">“panca”</strong> berarti lima dan <strong class="text-red-700 font-bold">“sila”</strong> berarti dasar atau prinsip. Jadi, Pancasila adalah lima prinsip utama yang menjadi fondasi dan pedoman hidup bagi kita sebagai bangsa Indonesia.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Setiap sila dalam Pancasila mencerminkan nilai-nilai moral, sosial, dan politik yang diharapkan menjadi panduan bagi kita semua. Nilai-nilai ini menjaga agar kehidupan bermasyarakat tetap harmonis dalam keberagaman.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        Dengan hadirnya Pancasila, kita punya pedoman untuk menciptakan harmoni di antara berbagai suku, agama, dan budaya yang ada di Indonesia. Prinsip-prinsip ini juga menekankan pentingnya toleransi, gotong royong, dan keadilan sosial. Pancasila benar-benar jadi pilar kokoh dalam menjaga persatuan dan kesatuan bangsa kita, deh pokoknya!
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6 bg-white p-8 rounded-2xl border border-slate-100 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full filter blur-xl"></div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                        <span>💡</span> Nilai-Nilai Luhur Pancasila
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-amber-500/5 transition duration-300 flex items-start gap-4">
+                            <span class="text-2xl mt-1">🤝</span>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Toleransi Tinggi</h4>
+                                <p class="text-sm text-slate-500 mt-0.5">Menghargai setiap perbedaan suku, ras, dan agama di Indonesia.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-amber-500/5 transition duration-300 flex items-start gap-4">
+                            <span class="text-2xl mt-1">🔥</span>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Gotong Royong</h4>
+                                <p class="text-sm text-slate-500 mt-0.5">Nilai inti kebersamaan dan bahu-bahu membangun peradaban bangsa.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl hover:bg-amber-500/5 transition duration-300 flex items-start gap-4">
+                            <span class="text-2xl mt-1">⚖️</span>
+                            <div>
+                                <h4 class="font-semibold text-slate-800">Keadilan Sosial</h4>
+                                <p class="text-sm text-slate-500 mt-0.5">Menyamakan hak dan kewajiban bagi seluruh lapisan masyarakat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Sejarah Lahirnya Pancasila -->
+        <section id="timeline" class="scroll-mt-24 space-y-12">
+            <div class="max-w-3xl mx-auto text-center space-y-4">
+                <span class="inline-block px-3 py-1 bg-amber-50 text-amber-700 font-bold text-xs rounded-md uppercase tracking-wider">
+                    Garis Waktu Perjuangan
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+                    Sejarah Lahirnya Pancasila
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Gagasan tentang dasar negara Indonesia mulai muncul ketika Jepang mengalami kekalahan dalam Perang Dunia II. Proses perjalanannya sangat panjang dan penuh dedikasi.
+                </p>
+            </div>
+
+            <!-- Timeline Vertical -->
+            <div class="relative border-l-2 border-slate-200 max-w-4xl mx-auto pl-6 sm:pl-10 space-y-12">
+                <!-- Node 1 -->
+                <div class="relative group">
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1 bg-white border-4 border-red-700 w-6 h-6 sm:w-8 sm:h-8 rounded-full group-hover:bg-red-700 transition flex items-center justify-center">
+                        <div class="w-2 h-2 bg-red-700 rounded-full group-hover:bg-white"></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition space-y-3">
+                        <span class="text-xs font-bold text-red-700">29 April 1945</span>
+                        <h3 class="font-bold text-lg text-slate-900">Pembentukan BPUPKI</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Jepang membentuk Badan Penyelidik Usaha-usaha Persiapan Kemerdekaan Indonesia (BPUPKI) setelah menjanjikan kemerdekaan Indonesia. Tugas utamanya adalah merumuskan dasar negara yang kokoh.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1 bg-white border-4 border-amber-500 w-6 h-6 sm:w-8 sm:h-8 rounded-full group-hover:bg-amber-500 transition flex items-center justify-center">
+                        <div class="w-2 h-2 bg-amber-500 rounded-full group-hover:bg-white"></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition space-y-3">
+                        <span class="text-xs font-bold text-amber-600">29 Mei - 1 Juni 1945</span>
+                        <h3 class="font-bold text-lg text-slate-900">Sidang Pertama BPUPKI</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Muncul banyak usulan mengenai dasar negara dari tiga tokoh utama nasional kita, yakni Muhammad Yamin, Soepomo, dan Soekarno melalui pidato-pidato brilian mereka.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="relative group">
+                    <div class="absolute -left-[35px] sm:-left-[51px] top-1 bg-white border-4 border-slate-900 w-6 h-6 sm:w-8 sm:h-8 rounded-full group-hover:bg-slate-900 transition flex items-center justify-center">
+                        <div class="w-2 h-2 bg-slate-900 rounded-full group-hover:bg-white"></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition space-y-3">
+                        <span class="text-xs font-bold text-slate-900">1 Juni 1945</span>
+                        <h3 class="font-bold text-lg text-slate-900">Lahirnya Pancasila (Pidato Bung Karno)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Pancasila lahir pertama kali diperkenalkan secara istilah lewat pidato bersejarah oleh Soekarno. Tanggal 1 Juni hingga kini terus kita peringati sebagai Hari Lahir Pancasila.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Tokoh Perumus (Dinamis dengan Ilustrasi Gambar) -->
+        <section id="tokoh" class="scroll-mt-24 bg-slate-900 text-white p-6 sm:p-12 rounded-3xl relative overflow-hidden">
+            <div class="absolute right-0 bottom-0 w-80 h-80 bg-red-600/10 rounded-full filter blur-3xl"></div>
+            
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-10">
+                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 text-xs font-bold rounded-md uppercase tracking-wider">
+                    Perumus Utama
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold">
+                    Tokoh-Tokoh Merumuskan Pancasila
+                </h2>
+                <p class="text-slate-400 text-sm">
+                    Gagasan brilian dari tiga pemikir agung yang menjadi batu pijakan utama ideologi negara kita.
+                </p>
+            </div>
+
+            <!-- Tombol Navigasi Tokoh -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
+                <button onclick="switchTokoh('yamin')" id="btn-yamin" class="tokoh-btn px-6 py-3 rounded-xl font-bold transition-all duration-300 text-sm bg-amber-500 text-slate-950 shadow-lg">
+                    Muhammad Yamin
+                </button>
+                <button onclick="switchTokoh('soepomo')" id="btn-soepomo" class="tokoh-btn px-6 py-3 rounded-xl font-bold transition-all duration-300 text-sm bg-white/10 text-white hover:bg-white/20">
+                    Soepomo
+                </button>
+                <button onclick="switchTokoh('soekarno')" id="btn-soekarno" class="tokoh-btn px-6 py-3 rounded-xl font-bold transition-all duration-300 text-sm bg-white/10 text-white hover:bg-white/20">
+                    Ir. Soekarno
+                </button>
+            </div>
+
+            <!-- Detail Tokoh Konten (Gambar Terintegrasi di Samping) -->
+            <div class="max-w-5xl mx-auto">
+                <!-- Content: Muhammad Yamin -->
+                <div id="content-yamin" class="tokoh-content transition-all-custom space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 flex flex-col items-center">
+                            <!-- Container Gambar Tokoh Yamin -->
+                            <div class="w-full max-w-xs aspect-[3/4] bg-slate-800 rounded-2xl border border-white/10 overflow-hidden relative shadow-lg flex items-center justify-center p-4">
+                                <img src="yamin.png" alt="Muhammad Yamin" class="w-full h-full object-cover rounded-xl" onerror="this.style.display='none'; document.getElementById('placeholder-yamin').classList.remove('hidden');">
+                                
+                                <div id="placeholder-yamin" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-3">
+                                    <div class="text-4xl">📜</div>
+                                    <span class="text-xs text-amber-400 font-semibold">[Ilustrasi M. Yamin]</span>
+                                    <span class="text-[10px] text-slate-400 leading-tight">Ganti dengan meletakkan file gambar bernama <code class="bg-black/40 px-1 rounded text-red-300">yamin.png</code></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-4">
+                            <h3 class="font-serif text-2xl font-bold text-amber-400">Muhammad Yamin</h3>
+                            <p class="text-slate-300 text-sm italic border-l-2 border-amber-500 pl-4">
+                                "Pada tanggal 29 Mei 1945, beliau mengusulkan lima asas dasar negara dalam bentuk pidato dan naskah tertulis."
+                            </p>
+                            <h4 class="font-semibold text-white pt-2">Usulan Dasar Negara (Rumusan Yamin):</h4>
+                            <ol class="space-y-2 text-sm text-slate-300">
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">1.</span> Peri Kebangsaan</li>
+                                <li 
+                                class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">2.</span> Peri Kemanusiaan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">3.</span> Peri Ketuhanan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">4.</span> Peri Kerakyatan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">5.</span> Kesejahteraan Rakyat</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content: Soepomo (Hidden by default) -->
+                <div id="content-soepomo" class="tokoh-content hidden transition-all-custom space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 flex flex-col items-center">
+                            <!-- Container Gambar Tokoh Soepomo -->
+                            <div class="w-full max-w-xs aspect-[3/4] bg-slate-800 rounded-2xl border border-white/10 overflow-hidden relative shadow-lg flex items-center justify-center p-4">
+                                <img src="soepomo.png" alt="Soepomo" class="w-full h-full object-cover rounded-xl" onerror="this.style.display='none'; document.getElementById('placeholder-soepomo').classList.remove('hidden');">
+                                
+                                <div id="placeholder-soepomo" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-3">
+                                    <div class="text-4xl">⚖️</div>
+                                    <span class="text-xs text-amber-400 font-semibold">[Ilustrasi Soepomo]</span>
+                                    <span class="text-[10px] text-slate-400 leading-tight">Ganti dengan meletakkan file gambar bernama <code class="bg-black/40 px-1 rounded text-red-300">soepomo.png</code></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-4">
+                            <h3 class="font-serif text-2xl font-bold text-amber-400">Soepomo</h3>
+                            <p class="text-slate-300 text-sm italic border-l-2 border-amber-500 pl-4">
+                                "Pada tanggal 31 Mei 1945, ia lebih menekankan konsep negara integralistik di mana negara dan rakyat merupakan satu kesatuan tak terpisahkan."
+                            </p>
+                            <h4 class="font-semibold text-white pt-2">Gagasan dan Prinsip Soepomo:</h4>
+                            <ol class="space-y-2 text-sm text-slate-300">
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">1.</span> Persatuan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">2.</span> Kekeluargaan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">3.</span> Kebudayaan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">4.</span> Keadilan Sosial</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">5.</span> Ketuhanan</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content: Soekarno (Hidden by default) -->
+                <div id="content-soekarno" class="tokoh-content hidden transition-all-custom space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 flex flex-col items-center">
+                            <!-- Container Gambar Tokoh Soekarno -->
+                            <div class="w-full max-w-xs aspect-[3/4] bg-slate-800 rounded-2xl border border-white/10 overflow-hidden relative shadow-lg flex items-center justify-center p-4">
+                                <img src="soekarno.png" alt="Soekarno" class="w-full h-full object-cover rounded-xl" onerror="this.style.display='none'; document.getElementById('placeholder-soekarno').classList.remove('hidden');">
+                                
+                                <div id="placeholder-soekarno" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6 text-center space-y-3">
+                                    <div class="text-4xl">🗣️</div>
+                                    <span class="text-xs text-amber-400 font-semibold">[Ilustrasi Soekarno]</span>
+                                    <span class="text-[10px] text-slate-400 leading-tight">Ganti dengan meletakkan file gambar bernama <code class="bg-black/40 px-1 rounded text-red-300">soekarno.png</code></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-4">
+                            <h3 class="font-serif text-2xl font-bold text-amber-400">Ir. Soekarno</h3>
+                            <p class="text-slate-300 text-sm italic border-l-2 border-amber-500 pl-4">
+                                "Pada 1 Juni 1945, beliau menyampaikan pidato yang memperkenalkan lima prinsip dasar yang ia beri nama Pancasila."
+                            </p>
+                            <h4 class="font-semibold text-white pt-2">Lima Sila Usulan Soekarno:</h4>
+                            <ol class="space-y-2 text-sm text-slate-300">
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">1.</span> Kebangsaan Indonesia</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">2.</span> Internasionalisme atau Perikemanusiaan</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">3.</span> Mufakat atau Demokrasi</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">4.</span> Kesejahteraan Sosial</li>
+                                <li class="p-3 bg-white/5 rounded-lg border border-white/5"><span class="text-amber-400 font-bold mr-2">5.</span> Ketuhanan yang Berkebudayaan</li>
+                            </ol>
+                            <div class="p-4 bg-amber-500/10 border border-amber-500/20 text-slate-300 rounded-xl text-xs sm:text-sm mt-2 leading-relaxed">
+                                <strong class="text-amber-400">Catatan Tambahan:</strong> Soekarno juga menyarankan bahwa kelima sila ini bisa diringkas menjadi <strong class="text-white">Trisila</strong>, atau bahkan <strong class="text-white">Ekasila (Gotong Royong)</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Panitia Sembilan & Perubahan Signifikan -->
+        <section id="panitia-sembilan" class="scroll-mt-24 space-y-12">
+            <div class="max-w-3xl mx-auto text-center space-y-4">
+                <span class="inline-block px-3 py-1 bg-red-50 text-red-700 font-bold text-xs rounded-md uppercase tracking-wider">
+                    Musyawarah dan Mufakat
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+                    Panitia Sembilan dan Lahirnya Piagam Jakarta
+                </h2>
+                <p class="text-slate-600 text-sm">
+                    Guna mematangkan ide dasar negara, dibentuk tim kecil berisi sembilan tokoh utama nasional.
+                </p>
+            </div>
+
+            <!-- Anggota Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 text-center">
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">Soekarno</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">Moh. Hatta</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">Moh. Yamin</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">A. Subardjo</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">Agus Salim</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">A. Tjokrosujoso</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">Wahid Hasyim</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">A.K. Muzakkir</div>
+                <div class="p-4 bg-white rounded-xl border border-slate-100 shadow-sm text-xs font-semibold hover:border-red-500/30 transition">A.A. Maramis</div>
+            </div>
+ <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+                <!-- Piagam Jakarta -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-lg space-y-6 relative overflow-hidden">
+                    <span class="absolute top-0 right-0 px-4 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-bl-xl">
+                        22 Juni 1945
+                    </span>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 flex items-center gap-2">
+                        📜 Piagam Jakarta
+                    </h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">
+                        Hasil rumusan dari Panitia Sembilan sebelum penyesuaian demi menjaga kesatuan wilayah kepulauan Indonesia:
+                    </p>
+                    <ol class="space-y-2 text-xs sm:text-sm text-slate-700">
+                        <li class="p-3 bg-red-50 rounded-xl border border-red-100 text-red-950 font-medium">1. Ketuhanan, dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya</li>
+                        <li class="p-3 bg-slate-50 rounded-xl">2. Kemanusiaan yang Adil dan Beradab</li>
+                        <li class="p-3 bg-slate-50 rounded-xl">3. Persatuan Indonesia</li>
+                        <li class="p-3 bg-slate-50 rounded-xl">4. Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</li>
+                        <li class="p-3 bg-slate-50 rounded-xl">5. Keadilan Sosial bagi Seluruh Rakyat Indonesia</li>
+                    </ol>
+                </div>
+
+                <!-- Rumusan Akhir (UUD 1945) -->
+                <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-lg space-y-6 relative overflow-hidden">
+                    <span class="absolute top-0 right-0 px-4 py-1 bg-amber-500 text-slate-950 text-xs font-bold rounded-bl-xl">
+                        18 Agustus 1945 (Resmi)
+                    </span>
+                    <h3 class="font-serif text-xl font-bold text-amber-400 flex items-center gap-2">
+                        ⭐ Pancasila dalam UUD 1945
+                    </h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Demi persatuan utuh, PPKI mengesahkan perubahan kalimat sila pertama menjadi sangat harmonis dan universal:
+                    </p>
+                    <ol class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-300 font-semibold">1. Ketuhanan Yang Maha Esa</li>
+                        <li class="p-3 bg-white/5 rounded-xl">2. Kemanusiaan yang Adil dan Beradab</li>
+                        <li class="p-3 bg-white/5 rounded-xl">3. Persatuan Indonesia</li>
+                        <li class="p-3 bg-white/5 rounded-xl">4. Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</li>
+                        <li class="p-3 bg-white/5 rounded-xl">5. Keadilan Sosial bagi Seluruh Rakyat Indonesia</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Kedudukan & Fungsi -->
+        <section id="kedudukan" class="scroll-mt-24 space-y-12">
+            <div class="max-w-3xl mx-auto text-center space-y-4">
+                <span class="inline-block px-3 py-1 bg-amber-50 text-amber-700 font-bold text-xs rounded-md uppercase tracking-wider">
+                    Nilai Praktis dan Hukum
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900">
+                    Kedudukan da Fungsi Pancasila
+                </h2>
+                <p class="text-slate-600 text-sm">
+                    Fungsi utamanya begitu luas dan mencakup setiap aspek bernegara secara fundamental.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Dasar Negara -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-md space-y-4">
+                    <span class="text-3xl">⚖️</span>
+                    <h3 class="font-serif text-xl font-bold text-slate-900">Pancasila Sebagai Dasar Negara</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Pancasila menjadi sumber utama dari segala hukum yang ada di Indonesia, guys. Ini artinya, setiap peraturan dan undang-undang harus sesuai dengan nilai-nilai yang ada di dalam Pancasila. Dengan adanya Pancasila, hukum di Indonesia jadi lebih kuat untuk menjaga ketertiban dan keadilan di seluruh lapisan masyarakat.
+                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Pancasila ngga cuma penting di aspek hukum, tapi juga dalam menjaga persatuan bangsa kita, guys. Lewat Pancasila, kita diajak untuk saling menghargai perbedaan dan menjunjung tinggi rasa persaudaraan. Inilah yang membuat Pancasila menjadi pondasi utama untuk membangun bangsa yang kuat dan harmonis.
+                    </p>
+                </div>
+
+                <!-- Ideologi Negara -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-md space-y-4">
+                    <span class="text-3xl">✨</span>
+                    <h3 class="font-serif text-xl font-bold text-slate-900">Pancasila Sebagai Ideologi Negara</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Guys, Pancasila bukan cuma jadi dasar hukum, tapi juga berfungsi sebagai ideologi negara yang mengarahkan tindakan dan kebijakan pemerintahan. Sebagai ideologi, Pancasila memberikan panduan untuk membangun bangsa dan negara dengan tujuan menciptakan keadilan sosial serta kesejahteraan bagi semua rakyat.
+                    </p>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Pancasila juga berperan penting dalam menjaga persatuan dan kesatuan bangsa, guys. Lewat Pancasila, kita diajak untuk selalu menghargai perbedaan dan menjunjung tinggi rasa persaudaraan di tengah masyarakat yang majemuk. Ini membantu kita membangun bangsa yang kuat dan harmonis, di mana keberagaman bukan menjadi penghalang, tapi kekuatan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box Tambahan: Fungsi Luas Pancasila -->
+            <div class="bg-gradient-to-br from-red-900 to-rose-950 p-8 sm:p-12 text-white rounded-3xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 w-64 h-64 bg-amber-500/10 rounded-full filter blur-3xl"></div>
+                <div class="max-w-3xl space-y-6 relative z-10">
+                    <h3 class="font-serif text-2xl font-bold text-amber-300">Fungsi Pancasila Secara Universal</h3>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                        Fungsi Pancasila itu luas banget, guys. Selain jadi dasar negara, Pancasila juga berperan sebagai ideologi dan pandangan hidup yang mengarahkan masyarakat dalam berperilaku. Selain itu, Pancasila juga berfungsi sebagai alat pemersatu bangsa, membantu menciptakan norma dan nilai yang mendukung kerukunan di tengah perbedaan yang ada.
+                    </p>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed">
+                        Adanya Pancasila, diharapkan masyarakat dapat hidup rukun dan damai. Pancasila mengajak kita untuk saling menghormati dan menerima perbedaan, sehingga kita bisa bersama-sama membangun bangsa yang lebih baik. Dalam konteks ini, Pancasila bukan sekadar teori, tetapi menjadi pedoman nyata dalam kehidupan sehari-hari.
+                    </p>
+                    <div class="pt-2 border-t border-white/10 text-xs text-amber-200 italic">
+                        "Mari kita praktikkan Pancasila dalam tindakan nyata demi kebaikan bersama!"
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-12 mt-20">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div class="space-y-1">
+                <h4 class="font-serif text-lg font-bold text-white tracking-wider">SEJARAH PANCASILA</h4>
+                <p class="text-xs text-slate-500">Pondasi utama pemersatu keberagaman Nusantara.</p>
+            </div>
+            <div class="flex flex-wrap gap-6 text-xs font-semibold justify-center">
+                <a href="#pengertian" class="hover:text-white transition">Definisi</a>
+                <a href="#timeline" class="hover:text-white transition">Timeline Sejarah</a>
+                <a href="#tokoh" class="hover:text-white transition">Gagasan Tokoh</a>
+                <a href="#panitia-sembilan" class="hover:text-white transition">Panitia Sembilan</a>
+                <a href="#kedudukan" class="hover:text-white transition">Fungsi</a>
+            </div>
+            <div class="text-xs text-slate-600">
+                &copy; 2026 Sejarah Pancasila. Dibuat oleh Ahmad Ilyas dari kelompok 2.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interaktif JS Logic -->
+    <script>
+        // Progress bar pembacaan atas halaman
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('readProgress').style.width = scrolled + '%';
+        });
+
+        // Logika Perpindahan Tab Tokoh Perumus (Muhammad Yamin, Soepomo, Soekarno)
+        function switchTokoh(tokohId) {
+            // Sembunyikan seluruh konten tokoh
+            document.querySelectorAll('.tokoh-content').forEach(element => {
+                element.classList.add('hidden');
+            });
+
+            // Kembalikan seluruh tombol ke mode non-aktif
+            document.querySelectorAll('.tokoh-btn').forEach(btn => {
+                btn.className = "tokoh-btn px-6 py-3 rounded-xl font-bold transition-all duration-300 text-sm bg-white/10 text-white hover:bg-white/20";
+            });
+
+            // Tampilkan konten tokoh yang dipilih secara spesifik
+            const activeContent = document.getElementById(`content-${tokohId}`);
+            activeContent.classList.remove('hidden');
+
+            // Jadikan tombol aktif
+            const activeBtn = document.getElementById(`btn-${tokohId}`);
+            activeBtn.className = "tokoh-btn px-6 py-3 rounded-xl font-bold transition-all duration-300 text-sm bg-amber-500 text-slate-950 shadow-lg";
+        }
+    </script>
+</body>
+</html>
